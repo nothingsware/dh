@@ -10,7 +10,7 @@ local Tab = Window:MakeTab({
 
 OrionLib:MakeNotification({
 	Name = "Welcome!",
-	Content = "This is script hub for solara meaning it supports the execuctor with alot of scripts!",
+	Content = "This is Script Hub for Solara, Meaning that it will support every script on here.",
 	Image = "rbxassetid://4483345998",
 	Time = 10
 })
@@ -50,6 +50,34 @@ Tab:AddSlider({
 	Callback = function(Value)
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 	end    
+})
+
+Tab:AddButton({
+	Name = "Reset JumpPower",
+	Callback = function()
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+  	end    
+})
+
+Tab:AddSlider({
+	Name = "FOV",
+	Min = 50,
+	Max = 120,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "FOV Value",
+	Callback = function(Value)
+		game.Workspace.CurrentCamera.FieldOfView = Value
+	end    
+})
+
+
+Tab:AddButton({
+	Name = "FOV Reset",
+	Callback = function()
+        game.Workspace.CurrentCamera.FieldOfView = 50
+  	end    
 })
 
 Tab:AddButton({
@@ -168,33 +196,25 @@ local plr = game.Players.LocalPlayer
 })
 
 Tab:AddButton({
-	Name = "Reset JumpPower",
+	Name = "Anti AFK",
 	Callback = function()
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-  	end    
+		game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub Anti AFK", Text = "Solara Hub was founded by .bluuu. and brennen_n in 2024", Icon = "rbxassetid://505845268", Duration = 10, Button1 = "Alright We Winning!"})
+
+
+local virtualUser = game:GetService("VirtualUser")
+local runService = game:GetService("RunService")
+
+
+local function preventAFK()
+    while true do
+        virtualUser:CaptureController()
+        virtualUser:ClickButton2(Vector2.new())
+        wait(30) 
+    end
+end
+runService.Heartbeat:Connect(preventAFK)
+    end
 })
-
-Tab:AddSlider({
-	Name = "FOV",
-	Min = 50,
-	Max = 120,
-	Default = 50,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "FOV Value",
-	Callback = function(Value)
-		game.Workspace.CurrentCamera.FieldOfView = Value
-	end    
-})
-
-
-Tab:AddButton({
-	Name = "FOV",
-	Callback = function()
-        game.Workspace.CurrentCamera.FieldOfView = 50
-  	end    
-})
-
 
 Tab:AddButton({
     Name = "Teleport Tool",
