@@ -672,54 +672,54 @@ local ESP = Window:MakeTab({
 })
 
 ESP:AddButton({
-    Name = "ESP Boxes",
+    Name = "ESP Boxes(T) for esp",
     Callback = function()
-        local ESPEnabled = false
-        local camera = game.Workspace.CurrentCamera
-        local worldToViewportPoint = camera.worldToViewportPoint
-        local lplr = game.Players.LocalPlayer
+  local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
 
-        local function ToggleESP()
-            ESPEnabled = not ESPEnabled
-            if ESPEnabled then
-                DrawESP()
-            else
-                ClearESP()
+local function abcdefg()
+    for _, Player in ipairs(Players:GetChildren()) do
+        local Character = Workspace:FindFirstChild(Player.Name)
+        if Character and Character:IsA("Model") then
+            Character.Parent = nil
+        end
+    end
+end
+
+local ESPEnabled = true
+
+local function toggleESP()
+    ESPEnabled = not ESPEnabled
+    if not ESPEnabled then
+        abcdefg()
+    end
+end
+
+-- Function to handle key press
+local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.T then
+        toggleESP()
+    end
+end
+
+
+UserInputService.InputBegan:Connect(onKeyPress)
+
+Workspace.ChildAdded:Connect(function(Child)
+    wait(0.1)
+    if ESPEnabled then
+        for _, Player in ipairs(Players:GetChildren()) do
+            if Child:IsA("Model") and Child.Name == Player.Name then
+                warn("Joined: "..Child.Name)
+                abcdefg()
             end
         end
+    end
+end)
 
-        local function DrawESP()
-            for _, player in ipairs(game.Players:GetPlayers()) do
-                if player ~= lplr and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character:FindFirstChild("Humanoid") and player.Character:FindFirstChild("Head") then
-                    local rootPart = player.Character.HumanoidRootPart
-                    local head = player.Character.Head
-                    local rootPos, onScreen = worldToViewportPoint(camera, rootPart.Position)
-                    local headPos = worldToViewportPoint(camera, head.Position + Vector3.new(0, 2, 0)) -- Adjust for head height
+toggleESP()  -- Initially enable ESP
 
-                    if onScreen then
-                        -- Draw ESP box
-                        local espBox = Drawing.new("Square")
-                        espBox.Visible = true
-                        espBox.Color = player.TeamColor -- Use player's team color for the ESP box
-                        espBox.Thickness = 1
-                        espBox.Transparency = 0.5
-                        espBox.Filled = false
-                        espBox.Size = Vector2.new(1000 / rootPos.Z, headPos.Y - rootPos.Y)
-                        espBox.Position = Vector2.new(rootPos.X - espBox.Size.X / 2, rootPos.Y)
-                    end
-                end
-            end
-        end
-
-        local function ClearESP()
-            for _, obj in ipairs(game.Workspace:GetChildren()) do
-                if obj:IsA("Drawing") then
-                    obj:Remove()
-                end
-            end
-        end
-
-        ToggleESP()
     end
 })
 
