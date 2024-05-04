@@ -1,9 +1,9 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Arsenal | Solara Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "arsenal"})
+local Window = OrionLib:MakeWindow({Name = "Arsenal | Solara Hub", HidePremium = false, SaveConfig = false, ConfigFolder = "arsenal"})
 
 game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Solara Hub was founded by .bluuu. and brennen_n in 2024", Icon = "rbxassetid://505845268", Duration = 10, Button1 = "Alright We Winning!"})
-game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Made by brennen_n and .bluuu.", Icon = "rbxassetid://505845268", Duration = 9, Button1 = "Alright They Are Kings!"})
+
 
 local SA = Window:MakeTab({
 	Name = "HitBox Extender (OP)",
