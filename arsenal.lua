@@ -5,217 +5,226 @@ local Window = OrionLib:MakeWindow({Name = "Arsenal | Solara Hub", HidePremium =
 game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Solara Hub was founded by .bluuu. and brennen_n in 2024", Icon = "rbxassetid://505845268", Duration = 10, Button1 = "Alright We Winning!"})
 game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Made by brennen_n and .bluuu.", Icon = "rbxassetid://505845268", Duration = 9, Button1 = "Alright They Are Kings!"})
 
-local HE = Window:MakeTab({
-    Name = "HitBox Extender",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
+local Tab = Window:MakeTab({
+	Name = "HitBox Extender",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
-HE:AddButton({
-    Name = "HitBox Extender",
-    Callback = function()
-        -- Gui to Lua
-        -- Version: 3.2
+Tab:AddButton({
+	Name = "HitBox Extender",
+	Callback = function()
+      		-- Gui to Lua
+-- Version: 3.2
 
-        -- Instances:
+-- Instances:
 
-        local ScreenGui = Instance.new("ScreenGui")
-        local SA = Instance.new("Frame")
-        local UICorner = Instance.new("UICorner")
-        local SAText = Instance.new("TextLabel")
-        local SilentAim = Instance.new("TextButton")
-        local UICorner_2 = Instance.new("UICorner")
-        local MadeBy = Instance.new("TextLabel")
-        local PlayerCount = Instance.new("TextLabel")
-        local UICorner_3 = Instance.new("UICorner")
+local HBE = Instance.new("ScreenGui")
+local HBE_2 = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local MadeBy = Instance.new("TextLabel")
+local HitBoxExtender = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local PlayersInServer = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local MadeBy_2 = Instance.new("TextLabel")
 
-        -- Properties:
+--Properties:
 
-        ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+HBE.Name = "HBE"
+HBE.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+HBE.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-        SA.Name = "SA"
-        SA.Parent = ScreenGui
-        SA.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-        SA.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        SA.BorderSizePixel = 0
-        SA.Position = UDim2.new(0.390309997, 0, 0.307328612, 0)
-        SA.Size = UDim2.new(0, 360, 0, 326)
+HBE_2.Name = "HBE"
+HBE_2.Parent = HBE
+HBE_2.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+HBE_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+HBE_2.BorderSizePixel = 0
+HBE_2.Position = UDim2.new(0.395617783, 0, 0.307328612, 0)
+HBE_2.Size = UDim2.new(0, 343, 0, 326)
 
-        UICorner.Parent = SA
+UICorner.Parent = HBE_2
 
-        SAText.Name = "SA Text"
-        SAText.Parent = SA
-        SAText.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-        SAText.BorderColor3 = Color3.fromRGB(170, 0, 0)
-        SAText.BorderSizePixel = 0
-        SAText.Size = UDim2.new(0, 360, 0, 44)
-        SAText.Font = Enum.Font.Bangers
-        SAText.Text = "Arsenal HBE Made By .bluuu."
-        SAText.TextColor3 = Color3.fromRGB(170, 0, 0)
-        SAText.TextSize = 35.000
+MadeBy.Name = "Made By"
+MadeBy.Parent = HBE_2
+MadeBy.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+MadeBy.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MadeBy.BorderSizePixel = 0
+MadeBy.Size = UDim2.new(0, 343, 0, 47)
+MadeBy.Font = Enum.Font.Bangers
+MadeBy.Text = "Arsenal HB Extender Made By .bluu."
+MadeBy.TextColor3 = Color3.fromRGB(170, 0, 0)
+MadeBy.TextSize = 27.000
 
-        SilentAim.Name = "Silent Aim"
-        SilentAim.Parent = SA
-        SilentAim.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        SilentAim.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        SilentAim.BorderSizePixel = 0
-        SilentAim.Position = UDim2.new(0.222222224, 0, 0.205521479, 0)
-        SilentAim.Size = UDim2.new(0, 230, 0, 79)
-        SilentAim.Font = Enum.Font.Bangers
-        SilentAim.Text = "Enable HB Extender"
-        SilentAim.TextColor3 = Color3.fromRGB(170, 0, 0)
-        SilentAim.TextSize = 30.000
-        SilentAim.TextStrokeTransparency = 0.000
+HitBoxExtender.Name = "HitBox Extender"
+HitBoxExtender.Parent = HBE_2
+HitBoxExtender.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+HitBoxExtender.BorderColor3 = Color3.fromRGB(0, 0, 0)
+HitBoxExtender.BorderSizePixel = 0
+HitBoxExtender.Position = UDim2.new(0.172011659, 0, 0.184049085, 0)
+HitBoxExtender.Size = UDim2.new(0, 224, 0, 77)
+HitBoxExtender.Font = Enum.Font.Bangers
+HitBoxExtender.Text = "Enable HB Extender"
+HitBoxExtender.TextColor3 = Color3.fromRGB(170, 0, 0)
+HitBoxExtender.TextSize = 29.000
 
-        UICorner_2.Parent = SilentAim
+UICorner_2.Parent = HitBoxExtender
 
-        MadeBy.Name = "Made By"
-        MadeBy.Parent = SA
-        MadeBy.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        MadeBy.BackgroundTransparency = 1.000
-        MadeBy.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        MadeBy.BorderSizePixel = 0
-        MadeBy.Position = UDim2.new(0, 0, 0.846625745, 0)
-        MadeBy.Size = UDim2.new(0, 360, 0, 50)
-        MadeBy.Font = Enum.Font.Bangers
-        MadeBy.Text = "B To Toggle On/Off"
-        MadeBy.TextColor3 = Color3.fromRGB(170, 0, 0)
-        MadeBy.TextSize = 30.000
+PlayersInServer.Name = "Players In Server"
+PlayersInServer.Parent = HBE_2
+PlayersInServer.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PlayersInServer.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayersInServer.BorderSizePixel = 0
+PlayersInServer.Position = UDim2.new(0.172011659, 0, 0.558282197, 0)
+PlayersInServer.Size = UDim2.new(0, 224, 0, 77)
+PlayersInServer.Font = Enum.Font.Bangers
+PlayersInServer.Text = "Players In Server:"
+PlayersInServer.TextColor3 = Color3.fromRGB(170, 0, 0)
+PlayersInServer.TextSize = 29.000
 
-        PlayerCount.Name = "Player Count"
-        PlayerCount.Parent = SA
-        PlayerCount.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        PlayerCount.BorderColor3 = Color3.fromRGB(0, 0, 0)
-        PlayerCount.BorderSizePixel = 0
-        PlayerCount.Position = UDim2.new(0.222222224, 0, 0.604294479, 0)
-        PlayerCount.Size = UDim2.new(0, 230, 0, 79)
-        PlayerCount.Font = Enum.Font.Bangers
-        PlayerCount.Text = "Player Count:"
-        PlayerCount.TextColor3 = Color3.fromRGB(170, 0, 0)
-        PlayerCount.TextSize = 27.000
+UICorner_3.Parent = PlayersInServer
 
-        UICorner_3.Parent = PlayerCount
+MadeBy_2.Name = "Made By"
+MadeBy_2.Parent = HBE_2
+MadeBy_2.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+MadeBy_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MadeBy_2.BorderSizePixel = 0
+MadeBy_2.Position = UDim2.new(-0.002915452, 0, 0.855828226, 0)
+MadeBy_2.Size = UDim2.new(0, 343, 0, 47)
+MadeBy_2.Font = Enum.Font.Bangers
+MadeBy_2.Text = "B To Close/Open GUI"
+MadeBy_2.TextColor3 = Color3.fromRGB(170, 0, 0)
+MadeBy_2.TextSize = 40.000
 
-        -- Scripts:
+-- Scripts:
 
-        local function MCITIJ_fake_script() -- SA.Draggable 
-            local script = Instance.new('LocalScript', SA)
+local function NQCCR_fake_script() -- PlayersInServer.Player Count 
+	local script = Instance.new('LocalScript', PlayersInServer)
 
+	local playerCountLabel = script.Parent
+	
+	local function updatePlayerCount()
+		local players = game.Players:GetPlayers()
+		playerCountLabel.Text = "Player Count: " .. #players
+	end
+	
+	
+	updatePlayerCount()
+	
+	game.Players.PlayerAdded:Connect(updatePlayerCount)
+	game.Players.PlayerRemoving:Connect(updatePlayerCount)
+	
+end
+coroutine.wrap(NQCCR_fake_script)()
+local function SYOTQDN_fake_script() -- HBE_2.Draggable 
+	local script = Instance.new('LocalScript', HBE_2)
 
-            local UIS = game:GetService('UserInputService')
-            local frame = script.Parent
-            local dragToggle = nil
-            local dragSpeed = 0.25
-            local dragStart = nil
-            local startPos = nil
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+end
+coroutine.wrap(SYOTQDN_fake_script)()
+local function WXZT_fake_script() -- HBE.Toggle 
+	local script = Instance.new('LocalScript', HBE)
 
-            local function updateInput(input)
-                local delta = input.Position - dragStart
-                local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
-                    startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-                game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
-            end
+	local Player = game:GetService("Players").LocalPlayer
+	local Mouse = Player:GetMouse()
+	local MainFrame = script.Parent.HBE
+	local keybind = "b"
+	
+	Mouse.KeyDown:Connect(function(key)
+		if key == keybind then
+			if MainFrame.Visible == false then
+				MainFrame.Visible = true
+			else
+				MainFrame.Visible = false
+			end
+		end
+	end)
+end
+coroutine.wrap(WXZT_fake_script)()
+HitBoxExtender.MouseButton1Down:connect(function()
+	function getplrsname()
+		for i,v in pairs(game:GetChildren()) do
+			if v.ClassName == "Players" then
+				return v.Name
+			end
+		end
+	end
+	local players = getplrsname()
+	local plr = game[players].LocalPlayer
+	coroutine.resume(coroutine.create(function()
+		while  wait(1) do
+			coroutine.resume(coroutine.create(function()
+				for _,v in pairs(game[players]:GetPlayers()) do
+					if v.Name ~= plr.Name and v.Character then
+						v.Character.RightUpperLeg.CanCollide = false
+						v.Character.RightUpperLeg.Transparency = 10
+						v.Character.RightUpperLeg.Size = Vector3.new(13,13,13)
 
-            frame.InputBegan:Connect(function(input)
-                if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-                    dragToggle = true
-                    dragStart = input.Position
-                    startPos = frame.Position
-                    input.Changed:Connect(function()
-                        if input.UserInputState == Enum.UserInputState.End then
-                            dragToggle = false
-                        end
-                    end)
-                end
-            end)
+						v.Character.LeftUpperLeg.CanCollide = false
+						v.Character.LeftUpperLeg.Transparency = 10
+						v.Character.LeftUpperLeg.Size = Vector3.new(13,13,13)
 
-            UIS.InputChanged:Connect(function(input)
-                if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-                    if dragToggle then
-                        updateInput(input)
-                    end
-                end
-            end)
-        end
-        coroutine.wrap(MCITIJ_fake_script)()
-        local function TGYL_fake_script() -- PlayerCount.LocalScript 
-            local script = Instance.new('LocalScript', PlayerCount)
+						v.Character.HeadHB.CanCollide = false
+						v.Character.HeadHB.Transparency = 10
+						v.Character.HeadHB.Size = Vector3.new(13,13,13)
 
-            local playerCountLabel = script.Parent -- Assumes the script is a child of a TextLabel
+						v.Character.HumanoidRootPart.CanCollide = false
+						v.Character.HumanoidRootPart.Transparency = 10
+						v.Character.HumanoidRootPart.Size = Vector3.new(13,13,13)
 
-            -- Function to update the player count
-            local function updatePlayerCount()
-                local players = game.Players:GetPlayers()
-                playerCountLabel.Text = "Player Count: " .. #players
-            end
+					end
+				end
+			end))
+		end
+	end))
+end)
 
-            -- Initially update the player count
-            updatePlayerCount()
-
-            -- Connect a function to fire whenever a player joins or leaves
-            game.Players.PlayerAdded:Connect(updatePlayerCount)
-            game.Players.PlayerRemoving:Connect(updatePlayerCount)
-
-        end
-        coroutine.wrap(TGYL_fake_script)()
-        local function BNQNGFT_fake_script() -- ScreenGui.Toggle 
-            local script = Instance.new('LocalScript', ScreenGui)
-
-            local Player = game:GetService("Players").LocalPlayer
-            local Mouse = Player:GetMouse()
-            local MainFrame = script.Parent.SA
-            local keybind = "b"
-
-            Mouse.KeyDown:Connect(function(key)
-                if key == keybind then
-                    if MainFrame.Visible == false then
-                        MainFrame.Visible = true
-                    else
-                        MainFrame.Visible = false
-                    end
-                end
-            end)
-        end
-        coroutine.wrap(BNQNGFT_fake_script)()
-        SilentAim.MouseButton1Down:connect(function()
-            function getplrsname()
-                for i,v in pairs(game:GetChildren()) do
-                    if v.ClassName == "Players" then
-                        return v.Name
-                    end
-                end
-            end
-            local players = getplrsname()
-            local plr = game[players].LocalPlayer
-            coroutine.resume(coroutine.create(function()
-                while  wait(1) do
-                    coroutine.resume(coroutine.create(function()
-                        for _,v in pairs(game[players]:GetPlayers()) do
-                            if v.Name ~= plr.Name and v.Character then
-                                v.Character.RightUpperLeg.CanCollide = false
-                                v.Character.RightUpperLeg.Transparency = 10
-                                v.Character.RightUpperLeg.Size = Vector3.new(30,30,30)
-
-                                v.Character.LeftUpperLeg.CanCollide = false
-                                v.Character.LeftUpperLeg.Transparency = 10
-                                v.Character.LeftUpperLeg.Size = Vector3.new(30,30,30)
-
-                                v.Character.HeadHB.CanCollide = false
-                                v.Character.HeadHB.Transparency = 10
-                                v.Character.HeadHB.Size = Vector3.new(30,30,30)
-
-                                v.Character.HumanoidRootPart.CanCollide = false
-                                v.Character.HumanoidRootPart.Transparency = 10
-                                v.Character.HumanoidRootPart.Size = Vector3.new(30,30,30)
-
-                            end
-                        end
-                    end))
-                end
-            end))
-        end)
-
-    end    
+  	end    
 })
-print("do222ne")
+
+
+local ESP = Window:MakeTab({
+	Name = "ESP",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+ESP:AddButton({
+	Name = "ESP",
+	Callback = function()
+      		loadstring(game:HttpGet("ht tps://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua", true))()
+  	end    
+})
