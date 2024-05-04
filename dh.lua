@@ -18,54 +18,6 @@ Main:AddButton({
 })
 
 Main:AddButton({
-    Name = "AimLock Tool"
-    Callback = function()
-        Aimlock = nil
-
-    for i, v in pairs(LocalPlayer.Backpack:GetChildren()) do
-        if v.ClassName == "Tool" and v.Name == "Aimlock Tool" then
-            v:Destroy() 
-        end
-    end
-    for i, v in pairs(LocalPlayer.Character:GetChildren()) do
-        if v.ClassName == "Tool" and v.Name == "Aimlock Tool" then
-            v:Destroy() 
-        elseif v.ClassName == "Tool" then
-            v.Parent = LocalPlayer.Backpack
-        end
-    end
-
-    local AimlockTool = Instance.new("Tool")
-    AimlockTool.Name = "Aimlock Tool"
-    AimlockTool.Parent = LocalPlayer.Backpack
-    AimlockTool.RequiresHandle = false
-    AimlockTool.TextureId = "rbxasset://1532350639"
-
-    AimlockTool.Activated:Connect(function()
-        local Plr = FindPlrOnMouse()
-
-        if Plr ~= nil and Plr.Character and Plr.Character:FindFirstChild("Head") and Plr.Character:FindFirstChild("UpperTorso") then
-            Aimlock = Plr 
-
-            game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "AIMLOCK | Solara Hub";
-                Text = "Aimlocking towards: " .. Plr.Name .. ", use any gun and shoot anywhere";
-                Duration = 2.5;
-            })
-        else
-            Aimlock = nil
-
-            game:GetService("StarterGui"):SetCore("SendNotification",{
-                Title = "AIMLOCK | Solara Hub ";
-                Text = "No player clicked on, aimlocking towards mouse as normal";
-                Duration = 2.5;
-            })
-        end
-    end)
-    end
-})
-
-Main:AddButton({
     Name = "Shazam!"
     Callback = function()
         if arg == "Shazam!" then
@@ -1248,6 +1200,3 @@ local Credits = Window:MakeTab({
 })
 
 Credits:AddParagraph("Solara Hub","Solara Hub is made by .bluuu. and brennen_n there discord, they have decided to make this as a script hub to make it easier for people to find scripts that are functional using solara, all scripts made will work and will be checked and updated every day! ")
-
-
---dh https://github.com/xvdotbaby/da-hood-source-codes/blob/main/Dimag%20X%20(LOGGER).lua#L269C3-L283C5
