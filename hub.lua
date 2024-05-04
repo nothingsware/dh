@@ -10,7 +10,7 @@ local Tab = Window:MakeTab({
 
 OrionLib:MakeNotification({
 	Name = "Welcome!",
-	Content = "This is Script Hub for Solara, Meaning that it will support every script on here.",
+	Content = "This Game is not supported for Solara Hub. You will be given universal options such as ESP was js freecam ETC.",
 	Image = "rbxassetid://4483345998",
 	Time = 10
 })
