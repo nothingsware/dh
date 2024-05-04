@@ -693,7 +693,7 @@ Others:AddButton({
 -------------------------------------------------------------------------------------------------------------------------
 local Teleports = Window:MakeTab({
     Name = "Teleports",
-    Icon = "rbxassetid://4483345998"
+    Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 
 })
