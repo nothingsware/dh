@@ -6,13 +6,13 @@ game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Solar
 game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Made by brennen_n and .bluuu.", Icon = "rbxassetid://505845268", Duration = 9, Button1 = "Alright They Are Kings!"})
 
 local SA = Window:MakeTab({
-	Name = "Silent Aim",
+	Name = "HitBox Extender (OP)",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
 SA:AddButton({
-	Name = "Silent Aim ",
+	Name = "HitBox Extender",
 	Callback = function()
       		-- Gui to Lua
 -- Version: 3.2
@@ -44,14 +44,14 @@ SA.Size = UDim2.new(0, 360, 0, 326)
 
 UICorner.Parent = SA
 
-SAText.Name = "SA Text"
+SAText.Name = "HE Text"
 SAText.Parent = SA
 SAText.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 SAText.BorderColor3 = Color3.fromRGB(170, 0, 0)
 SAText.BorderSizePixel = 0
 SAText.Size = UDim2.new(0, 360, 0, 44)
 SAText.Font = Enum.Font.Bangers
-SAText.Text = "Arsenal SA Made By .bluuu."
+SAText.Text = "Arsenal HE Made By .bluuu."
 SAText.TextColor3 = Color3.fromRGB(170, 0, 0)
 SAText.TextSize = 35.000
 
@@ -63,7 +63,7 @@ SilentAim.BorderSizePixel = 0
 SilentAim.Position = UDim2.new(0.222222224, 0, 0.205521479, 0)
 SilentAim.Size = UDim2.new(0, 213, 0, 79)
 SilentAim.Font = Enum.Font.Bangers
-SilentAim.Text = "Enable Silent Aim"
+SilentAim.Text = "Enable HitBox Extender"
 SilentAim.TextColor3 = Color3.fromRGB(170, 0, 0)
 SilentAim.TextSize = 30.000
 SilentAim.TextStrokeTransparency = 0.000
@@ -178,7 +178,7 @@ local function BNQNGFT_fake_script() -- ScreenGui.Toggle
 	end)
 end
 coroutine.wrap(BNQNGFT_fake_script)()
-SilentAim.MouseButton1Down:connect(function()
+HitBox Extender.MouseButton1Down:connect(function()
 	function getplrsname()
 		for i,v in pairs(game:GetChildren()) do
 			if v.ClassName == "Players" then
