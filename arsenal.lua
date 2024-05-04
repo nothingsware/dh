@@ -1,17 +1,17 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Arsenal | Solara Hub", HidePremium = false, SaveConfig = false, ConfigFolder = "arsenal"})
+local Window = OrionLib:MakeWindow({Name = "Arsenal | Solara Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "arsenal"})
 
 game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Solara Hub was founded by .bluuu. and brennen_n in 2024", Icon = "rbxassetid://505845268", Duration = 10, Button1 = "Alright We Winning!"})
+game.StarterGui:SetCore("SendNotification", {Title = "Solara Hub", Text = "Made by brennen_n and .bluuu.", Icon = "rbxassetid://505845268", Duration = 9, Button1 = "Alright They Are Kings!"})
 
-
-local SA = Window:MakeTab({
-	Name = "HitBox Extender (OP)",
+local HE = Window:MakeTab({
+	Name = "HitBox Extender",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-SA:AddButton({
+HE:AddButton({
 	Name = "HitBox Extender",
 	Callback = function()
       		-- Gui to Lua
@@ -44,14 +44,14 @@ SA.Size = UDim2.new(0, 360, 0, 326)
 
 UICorner.Parent = SA
 
-SAText.Name = "HE Text"
+SAText.Name = "SA Text"
 SAText.Parent = SA
 SAText.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 SAText.BorderColor3 = Color3.fromRGB(170, 0, 0)
 SAText.BorderSizePixel = 0
 SAText.Size = UDim2.new(0, 360, 0, 44)
 SAText.Font = Enum.Font.Bangers
-SAText.Text = "Arsenal HE Made By .bluuu."
+SAText.Text = "Arsenal HBE Made By .bluuu."
 SAText.TextColor3 = Color3.fromRGB(170, 0, 0)
 SAText.TextSize = 35.000
 
@@ -63,7 +63,7 @@ SilentAim.BorderSizePixel = 0
 SilentAim.Position = UDim2.new(0.222222224, 0, 0.205521479, 0)
 SilentAim.Size = UDim2.new(0, 213, 0, 79)
 SilentAim.Font = Enum.Font.Bangers
-SilentAim.Text = "Enable HitBox Extender"
+SilentAim.Text = "Enable HB Extender"
 SilentAim.TextColor3 = Color3.fromRGB(170, 0, 0)
 SilentAim.TextSize = 30.000
 SilentAim.TextStrokeTransparency = 0.000
@@ -178,7 +178,7 @@ local function BNQNGFT_fake_script() -- ScreenGui.Toggle
 	end)
 end
 coroutine.wrap(BNQNGFT_fake_script)()
-HitBox Extender.MouseButton1Down:connect(function()
+SilentAim.MouseButton1Down:connect(function()
 	function getplrsname()
 		for i,v in pairs(game:GetChildren()) do
 			if v.ClassName == "Players" then
