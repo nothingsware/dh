@@ -12,7 +12,7 @@ local Main = Window:MakeTab({
 
 
 Main:AddButton({
-    Name = "Aimlock(SOON)"
+    Name = "Aimlock(SOON)",
     Callback = function()
     end
 })
