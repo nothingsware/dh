@@ -683,11 +683,16 @@ ESP:AddButton({
             end
         end
         
+        local NoneTeam = Instance.new("Model", Workspace)
+        NoneTeam.Name = "NoneTeam"
+        local Highlight = Instance.new("Highlight", NoneTeam)
+        Highlight.FillTransparency = 1
+        
         local function abcdefg()
             for _, Player in ipairs(Players:GetChildren()) do
                 for _, Character in ipairs(Workspace:GetDescendants()) do
                     if Character:IsA("Model") and Character.Name == Player.Name then
-                        Character.Parent = Workspace
+                        Character.Parent = NoneTeam
                     end
                 end
             end
@@ -704,6 +709,7 @@ ESP:AddButton({
         end)
         
         abcdefg()
+        
         
     end
 })
