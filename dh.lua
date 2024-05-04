@@ -911,65 +911,6 @@ Teleports:AddButton({
     end
 })
 
-local ESP = Window:MakeTab({
-    Name = "Esp",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-ESP:AddButton({
-    Name = "ESP Boxes",
-    Callback = function()
-        local ESPEnabled = false
-        local camera = game.Workspace.CurrentCamera
-        local worldToViewportPoint = camera.worldToViewportPoint
-        local lplr = game.Players.LocalPlayer
-
-        local function ToggleESP()
-            ESPEnabled = not ESPEnabled
-            if ESPEnabled then
-                DrawESP()
-            else
-                ClearESP()
-            end
-        end
-
-        local function DrawESP()
-            for _, player in ipairs(game.Players:GetPlayers()) do
-                if player ~= lplr and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character:FindFirstChild("Humanoid") and player.Character:FindFirstChild("Head") then
-                    local rootPart = player.Character.HumanoidRootPart
-                    local head = player.Character.Head
-                    local rootPos, onScreen = worldToViewportPoint(camera, rootPart.Position)
-                    local headPos = worldToViewportPoint(camera, head.Position + Vector3.new(0, 2, 0)) -- Adjust for head height
-
-                    if onScreen then
-                        -- Draw ESP box
-                        local espBox = Drawing.new("Square")
-                        espBox.Visible = true
-                        espBox.Color = player.TeamColor -- Use player's team color for the ESP box
-                        espBox.Thickness = 1
-                        espBox.Transparency = 0.5
-                        espBox.Filled = false
-                        espBox.Size = Vector2.new(1000 / rootPos.Z, headPos.Y - rootPos.Y)
-                        espBox.Position = Vector2.new(rootPos.X - espBox.Size.X / 2, rootPos.Y)
-                    end
-                end
-            end
-        end
-
-        local function ClearESP()
-            for _, obj in ipairs(game.Workspace:GetChildren()) do
-                if obj:IsA("Drawing") then
-                    obj:Remove()
-                end
-            end
-        end
-
-        ToggleESP()
-    end
-})
-
-
 local Credits = Window:MakeTab({
     Name = "Credits",
     Icon = "rbxassetid://4483345998",
@@ -977,5 +918,3 @@ local Credits = Window:MakeTab({
 })
 
 Credits:AddParagraph("Solara Hub","Solara Hub is made by .bluuu. and brennen_n there discord, they have decided to make this as a script hub to make it easier for people to find scripts that are functional using solara, all scripts made will work and will be checked and updated every day! ")
-
-
