@@ -672,54 +672,39 @@ local ESP = Window:MakeTab({
 })
 
 ESP:AddButton({
-    Name = "ESP Boxes(T) for esp",
+    Name = "ESP Boxes",
     Callback = function()
-  local Workspace = game:GetService("Workspace")
-local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
-
-local function abcdefg()
-    for _, Player in ipairs(Players:GetChildren()) do
-        local Character = Workspace:FindFirstChild(Player.Name)
-        if Character and Character:IsA("Model") then
-            Character.Parent = nil
-        end
-    end
-end
-
-local ESPEnabled = true
-
-local function toggleESP()
-    ESPEnabled = not ESPEnabled
-    if not ESPEnabled then
-        abcdefg()
-    end
-end
-
--- Function to handle key press
-local function onKeyPress(input)
-    if input.KeyCode == Enum.KeyCode.T then
-        toggleESP()
-    end
-end
-
-
-UserInputService.InputBegan:Connect(onKeyPress)
-
-Workspace.ChildAdded:Connect(function(Child)
-    wait(0.1)
-    if ESPEnabled then
-        for _, Player in ipairs(Players:GetChildren()) do
-            if Child:IsA("Model") and Child.Name == Player.Name then
-                warn("Joined: "..Child.Name)
-                abcdefg()
+        local Workspace = game:GetService("Workspace")
+        local Players = game:GetService("Players")
+        
+        for _, Check1 in ipairs(game:GetDescendants()) do
+            if Check1:IsA("Players") then
+                Players = Check1
             end
         end
-    end
-end)
-
-toggleESP()  -- Initially enable ESP
-
+        
+        local function abcdefg()
+            for _, Player in ipairs(Players:GetChildren()) do
+                for _, Character in ipairs(Workspace:GetDescendants()) do
+                    if Character:IsA("Model") and Character.Name == Player.Name then
+                        Character.Parent = Workspace
+                    end
+                end
+            end
+        end
+        
+        Workspace.ChildAdded:Connect(function(Child)
+            wait(0.1)
+            for _, Player in ipairs(Players:GetChildren()) do
+                if Child:IsA("Model") and Child.Name == Player.Name then
+                    warn("Joined: "..Child.Name)
+                    abcdefg()
+                end
+            end
+        end)
+        
+        abcdefg()
+        
     end
 })
 
