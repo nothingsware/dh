@@ -225,6 +225,6 @@ local ESP = Window:MakeTab({
 ESP:AddButton({
 	Name = "ESP",
 	Callback = function()
-      		loadstring(game:HttpGet("ht tps://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua", true))()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua", true))()
   	end    
 })
